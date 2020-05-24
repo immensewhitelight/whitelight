@@ -6,15 +6,13 @@ This app uses Laravel, Orchid platform, Redis, Vue.js, Node.js, Socket.io, Boots
 
 cd into the app root directory and run the following commands:
 
-//edit .env with the database information
-cp .env.example .env  
+cp .env.example .env	//edit .env with the database information
 
 composer update
 
 npm install && npm run dev
 
-//to start Node
-node socket.js  
+node socket.js	//to start Node  
 
 </p>
 
