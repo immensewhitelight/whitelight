@@ -22,7 +22,9 @@ class ChatController extends Controller
 	
 	public function postMessage($channel) {
 		
-		
+		$validatedData = $request->validate([
+        'message' => 'max:555|regex:/(^([a-zA-z]+)(\d+)?$)/u',
+        ]);
 	
 		//Sends to Redis only
 		$message = [

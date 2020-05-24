@@ -1,3 +1,30 @@
+
+
+<p>
+
+This app uses Laravel, Orchid platform, Redis, Vue.js, Node.js, Socket.io, Bootstrap 4. 
+
+cd into the app root directory and run the following commands:
+
+cp .env.example .env  //edit .env with the database information
+
+composer require laravel/ui
+
+php artisan ui vue
+
+npm install && npm run dev
+
+npm install vue-router
+
+npm install vue bootstrap-vue bootstrap 
+
+npm install && npm run dev
+
+node socket.js  //to start Node
+
+</p>
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
