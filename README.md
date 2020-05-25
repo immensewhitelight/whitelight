@@ -8,7 +8,7 @@ cd into the app root directory and run the following commands:
 
 cp .env.example .env	//edit .env with the database information
 
-composer update
+composer install
 
 npm install && npm run dev
 
