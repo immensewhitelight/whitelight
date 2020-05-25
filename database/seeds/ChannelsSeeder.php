@@ -16,6 +16,8 @@ class ChannelsSeeder extends Seeder
 
         $channels = [
             'Channel 1',
+            'Channel 2',
+            'Channel 3',
         ];
 
         foreach ($channels as $name) {
