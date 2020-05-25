@@ -2,6 +2,8 @@
 
 <p>
 
+Copyright WhiteLight released under the MIT license.
+
 This app uses Laravel, Orchid platform, Redis, Vue.js, Node.js, Socket.io, Bootstrap 4. 
 
 cd into the app root directory and run the following commands:
