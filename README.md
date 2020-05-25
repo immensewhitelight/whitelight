@@ -12,9 +12,17 @@ composer install
 
 cp .env.example .env	//edit .env with the database information
 
+php artisan key:generate
+
+php artisan migrate
+
+php artisan db:seed
+
 npm install && npm run dev
 
 node socket.js	//to start Node  
+
+php artisan orchid:admin admin admin@admin.com password //create admin user for Orchid dashboard
 
 </p>
 
