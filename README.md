@@ -6,9 +6,9 @@ This app uses Laravel, Orchid platform, Redis, Vue.js, Node.js, Socket.io, Boots
 
 cd into the app root directory and run the following commands:
 
-cp .env.example .env	//edit .env with the database information
-
 composer install
+
+cp .env.example .env	//edit .env with the database information
 
 npm install && npm run dev
 
