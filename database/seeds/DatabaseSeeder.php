@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
 		
 		$this->call(ChannelsSeeder::class);
         //$this->call(UsersTableSeeder::class);
-        $this->call(PostsTableSeeder::class);
+        //$this->call(PostsTableSeeder::class);
 
         Model::reguard(); // Enable mass assignment
         
