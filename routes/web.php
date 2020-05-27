@@ -49,7 +49,19 @@ Route::get('/about', function () {
     
 })->where('any', '.*');
 
+//redirect to home to solve reload of /portal/{id} error
+Route::get('/source', function () {
+    
+    return redirect('/');
+    
+})->where('any', '.*');
 
+//redirect to home to solve reload of /portal/{id} error
+Route::get('/donate', function () {
+    
+    return redirect('/');
+    
+})->where('any', '.*');
 
 //send messages to the chat
 Route::post('/channels/{channel}/messages','ChatController@postMessage')->name('postMessage');
