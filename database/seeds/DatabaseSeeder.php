@@ -12,11 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        
         Model::unguard(); // Disable mass assignment
 		
-		//$this->call(PortalsTableSeeder::class);
 		$this->call(ChannelsSeeder::class);
         //$this->call(UsersTableSeeder::class);
         //$this->call(PostsTableSeeder::class);
