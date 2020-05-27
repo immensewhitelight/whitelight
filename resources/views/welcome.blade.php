@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
   <!--  <link rel="stylesheet" href="css/app.css"> -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jobs app</title>
+    <title>Ideas app</title>
     
     
 </head>
