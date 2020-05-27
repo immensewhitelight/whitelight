@@ -16,7 +16,9 @@ BROADCAST_DRIVER=redis //edit .env to use redis
 
 socket.js //edit to correct username and domain 
 
-/resources/js/components/VueChat.vue //edit to correct somedomain.com, around line 188
+resources/js/components/VueChat.vue //edit to correct somedomain.com, around line 188
+
+chmod -R o+w storage bootstrap/cache //from the app root directory set permissions
 
 php artisan key:generate
 
@@ -31,6 +33,10 @@ node socket.js	//to start Node
 php artisan orchid:admin admin admin@admin.com password //create admin user for Orchid dashboard
 
 somedomain.com/dashboard //access Orchid dashboard
+
+troubleshooting:
+make sure redis is installed
+make sure the permissions to the ssl files are correct
 
 </p>
 
