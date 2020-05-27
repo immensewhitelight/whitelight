@@ -14,11 +14,9 @@ cp .env.example .env   //edit .env with correct database and domain information
 
 BROADCAST_DRIVER=redis //edit .env to use redis
 
-edit to correct username and domain: 
-/socket.js 
+socket.js //edit to correct username and domain 
 
-edit to correct somedomain.com, around line 188:
-/resources/js/components/VueChat.vue
+/resources/js/components/VueChat.vue //edit to correct somedomain.com, around line 188
 
 php artisan key:generate
 
