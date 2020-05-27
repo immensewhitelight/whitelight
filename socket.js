@@ -1,9 +1,10 @@
 var fs = require( 'fs' );
 const https = require('https');
 
+// edit username and somedomain.com
 const options = {
-  key: fs.readFileSync('/home/user/conf/web/ssl.domain.com.key'),
-  cert: fs.readFileSync('/home/user/conf/web/ssl.domain.com.crt')
+  key: fs.readFileSync('/home/username/conf/web/ssl.somedomain.com.key'),
+  cert: fs.readFileSync('/home/username/conf/web/ssl.somedomain.com.crt')
 };
 const server = https.createServer(options);
 const io = require('socket.io')(server);

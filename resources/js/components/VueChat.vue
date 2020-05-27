@@ -184,11 +184,9 @@ export default {
    
  created() {
 	
- 
+   // edit somedomain.com. don't edit username here, leave it as "username".
+   this.socket = io.connect(`https://somedomain.com:3000?username=${this.username}`, {secure: true});
 
-   this.socket = io.connect(`https://domain.com:3000?username=${this.username}`, {secure: true});
-
-    
     this.block();
  
  },

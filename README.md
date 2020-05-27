@@ -10,7 +10,15 @@ cd into the app root directory and run the following commands:
 
 composer install
 
-cp .env.example .env	//edit .env with the database information
+cp .env.example .env   //edit .env with correct database and domain information
+
+BROADCAST_DRIVER=redis //edit .env to use redis
+
+edit to correct username and domain: 
+/socket.js 
+
+edit to correct somedomain.com, around line 188:
+/resources/js/components/VueChat.vue
 
 php artisan key:generate
 
@@ -23,6 +31,8 @@ npm install && npm run dev
 node socket.js	//to start Node  
 
 php artisan orchid:admin admin admin@admin.com password //create admin user for Orchid dashboard
+
+somedomain.com/dashboard //access Orchid dashboard
 
 </p>
 
