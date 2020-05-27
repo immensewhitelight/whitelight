@@ -27,8 +27,9 @@
 								<div id="app">
 										   
 										<router-link :to="{ name: 'home' }">Home</router-link>
-<router-link :to="{ name: 'about' }">About</router-link>
-
+										<router-link :to="{ name: 'about' }">About</router-link>
+										<router-link :to="{ name: 'source' }">Source code</router-link>
+										<router-link :to="{ name: 'donate' }">Donate</router-link>
 										<router-view></router-view>
 								  <br>
 										<vue-chat :channels="{{ $channels }}"></vue-chat>

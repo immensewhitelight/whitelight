@@ -35,8 +35,8 @@ php artisan orchid:admin admin admin@admin.com password //create admin user for 
 somedomain.com/dashboard //access Orchid dashboard
 
 troubleshooting:
-make sure redis is installed
-make sure the permissions to the ssl files are correct
+make sure redis is installed,
+make sure the ownership of the ssl files are correct
 
 </p>
 

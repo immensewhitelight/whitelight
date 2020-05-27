@@ -14,8 +14,10 @@ Vue.use(IconsPlugin)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-
 import AboutComponent from './components/AboutComponent'
+import SourceComponent from './components/SourceComponent'
+import DonateComponent from './components/DonateComponent'
+
 import PostComponent from './components/PostComponent'
 import PortalComponent from './components/PortalComponent'
 
@@ -47,12 +49,21 @@ const router = new VueRouter({
             name: 'home',
             component: PostComponent
         },
-
         {
            path: '/about',
-	   name: 'about',
+	       name: 'about',
            component: AboutComponent
-	},	
+	    },
+	    {
+           path: '/source',
+	       name: 'source',
+           component: SourceComponent
+	    },
+	    {
+           path: '/donate',
+	       name: 'donate',
+           component: DonateComponent
+	    },
 		{ 	path: '/portal/:id', 
 			component: PortalComponent 
 		},
