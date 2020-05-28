@@ -6,7 +6,12 @@
              <!--   <div class="card-header">Jobs</div> -->
                 
                 <div class="card-body">
-<div class="col" ref="posts-window">
+					<div class="col" ref="posts-window">
+
+					<div v-if="loading" class="loading">
+						  Loading...
+						</div>
+
                      <div v-for="post in posts" :key="post.id">
                      
                         <p>{{ post.title }}</p>
@@ -16,7 +21,7 @@
                         <p> <button v-on:click="handleClick(post)">Links</button> </p>
 
         			 </div>
-</div>
+					</div>
                 </div>
             </div>
         </div>
@@ -25,25 +30,26 @@
 </template>
 
 <script>
+
+var loading
     export default {
 
     	data () {
             return {
+            
               posts: {},
             }   
         },
         
         
         watch: {
-    messages() {
-        this.scrollToBottom();
-    }
-},
+		
+	   },
 
         methods: {
             
         	getPosts(){
-        		
+        		this.loading = true
         		var url = "/postlist"
         		
                  axios
@@ -60,15 +66,22 @@
             },
             
             scrollToBottom() {
-        this.$nextTick(() => {
-            this.$refs['posts-window'].scrollTop = this.$refs['posts-window'].scrollHeight;
-        });
-    }
+			this.$nextTick(() => {
+				this.$refs['posts-window'].scrollTop = this.$refs['posts-window'].scrollHeight;
+			});
+		}
             
         },
         created() {
             this.getPosts()
-        }
+        },
+        
+        
+        mounted() {
+		this.loading = false
+	  }
+
+        
     }
 </script> 
 
