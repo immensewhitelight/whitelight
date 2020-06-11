@@ -37,7 +37,7 @@ redis.on('pmessage', function (pattern, channel, message) {
     // also, at this time user ip address becomes known to socket.io.
     // through the socket connection.
     // ip address is used to block multiple connections from an ip address
-    // by adding username to the participants array, and if already present, 
+    // by adding ip address to the ipAddresses array, and if already present, 
     // another socket connection is not allowed.
     // However, because messages from client are not sent over the socket but 
     // instead  to laravel route, they can only be blocked using laravel middleware. 
