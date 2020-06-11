@@ -1,57 +1,49 @@
 <template>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-            <!--    <div class="card-header">Chat</div> -->
-        
-                <div class="card-body">
 
-                     <div class="container">
-                     
-                     <div class="row">
+			<div id="app" class="container-fluid">
+                    <div class="row">
 							<div class="col">
-								<input type="checkbox" id="checkbox" v-model="checkbox">
-								<label for="checkbox"> block all other users. {{ (checkbox ? "true. you are user: " + this.username : "you are user: " + this.username) }}</label>
+							<input type="checkbox" id="checkbox" v-model="checkbox">
+							<label for="checkbox"> block all other users. {{ (checkbox ? "true. you are user: " + this.username : "you are user: " + this.username) }}</label>
 							</div>
-						 </div>
-                   
-						  <div class="row">
+					</div>
+					
+					<div class="row">
 							<div class="col">
 							 <vue-chat-channels :channels="channels"
 							:active-channel="activeChannel"
 							@channelChanged="onChannelChanged"></vue-chat-channels>
 							</div>
-							
+						
 							<div class="col">
 							<vue-chat-participants :participants="participants" :checkbox="checkbox"></vue-chat-participants>
 							</div>
-							
+					</div>
+					<div class="row">		
 							<div class="col">
+							  <br>	
 							  <vue-chat-messages :messages="messages"></vue-chat-messages> 
 							</div>
 							
-						  </div>
-						  <br>
-						 <div class="row">
+				    </div>
+
+							
+				   <br>
+				   <br>
+					<div class="row">
 							<div class="col">
 								<vue-chat-new-message :active-channel="activeChannel"
 								:username="username"></vue-chat-new-message>
 							</div>
-						 </div>
-  
-  
-					</div>   
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+				   </div>
+				   <br>
+			</div>   
+       
 </template>
 
 <script>
 
+// when user clicks username button in User component, send username over eventbus
 import EventBus from '../eventBus.js'
 export default {
     
@@ -142,7 +134,7 @@ export default {
 							
 								if ( (sameChannel && notUsernameInBlocking) || self )   {
 											this.messages.push(data.data);
-										}
+										} 		
 							});	
 						
 				   } 
@@ -184,9 +176,8 @@ export default {
    
  created() {
 	
-   // edit somedomain.com. don't edit username here, leave it as "username".
-   this.socket = io.connect(`https://somedomain.com:3000?username=${this.username}`, {secure: true});
-
+    this.socket = io.connect(`https://somedomain.com:3000?username=${this.username}`, {secure: true});
+    
     this.block();
  
  },
@@ -211,5 +202,10 @@ export default {
 </script>
 
 <style scoped>
+
+.col {
+    
+}
+
 </style>
 

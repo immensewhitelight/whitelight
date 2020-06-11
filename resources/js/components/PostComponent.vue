@@ -1,34 +1,23 @@
 <template>
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-             <!--   <div class="card-header">Jobs</div> -->
-                
-                <div class="card-body">
-					<div class="col" ref="posts-window">
-
-					<div v-if="loading" class="loading">
+		<div class="col">
+				<div id="app" class="col" ref="posts-window">
+				  <div v-if="loading" class="loading">
 						  Loading...
-						</div>
-
-                     <div v-for="post in posts" :key="post.id">
-                     
-                        <p>{{ post.title }}</p>
-                        <p>{{ post.description }}</p>
-                        <p>{{ post.body }}</p>
-                       
-                        <p> <button v-on:click="handleClick(post)">Links</button> </p>
-
-        			 </div>
-					</div>
-                </div>
-            </div>
+				  </div>
+                  
+                  <div v-for="post in posts" :key="post.id">
+                      <p>{{ post.title }}</p>
+                      <p>{{ post.description }}</p>   
+                      <div v-html="post.body"></div>    
+                      <p> <button class="btn btn-primary" v-on:click="handleClick(post)">Links</button> </p>
+			      </div>
+			   </div>
         </div>
     </div>
 </div>
 </template>
-
 <script>
 
 var loading

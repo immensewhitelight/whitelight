@@ -22,6 +22,7 @@ class ChatController extends Controller
 	
 	public function postMessage($channel) {
 		
+		
 	
 		//Sends to Redis only
 		$message = [

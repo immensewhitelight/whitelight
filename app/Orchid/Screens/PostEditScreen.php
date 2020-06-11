@@ -29,7 +29,7 @@ class PostEditScreen extends Screen
      *
      * @var string
      */
-    public $description = 'Idea posts';
+    public $description = 'Idea post';
 
     /**
      * @var bool
@@ -105,7 +105,9 @@ class PostEditScreen extends Screen
                     ->title('Author')
                     ->fromModel(User::class, 'name'),
 				
-                TextArea::make('post.body')
+                Quill::make('post.body')
+                    ->maxlength(1000)
+                    ->placeholder('')
                     ->title('Main text'),
                     
                 Input::make('post.links')

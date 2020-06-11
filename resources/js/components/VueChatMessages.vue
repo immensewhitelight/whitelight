@@ -1,5 +1,5 @@
 <template>
-    <div class="col" ref="message-window">
+    <div id="app" class="col" ref="message-window">
         <p v-for="message in messages"
             :key="message.id"
             class="message"
@@ -39,9 +39,11 @@ methods: {
 </script>
 
 <style scoped>
+
+
 .col {
     overflow-y: auto;
-    max-height: 188px;
+    max-height: 333px;
 	word-wrap: break-word;
 }
 

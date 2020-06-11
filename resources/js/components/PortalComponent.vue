@@ -1,15 +1,13 @@
 <template>
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-             <!--   <div class="card-header">Links:</div> -->
-                
-                <div class="card-body">
+		<div class="col">
+			<div id="app">
 			
+			<p>
 				<span v-html="post"></span></p>
-				
-                </div>
+			</p>	
+                
             </div>
         </div>
     </div>
@@ -59,7 +57,7 @@
             	//convert the array of arrays into a string of url links
             	var links = '| ';
             	for (i = 0; i < aray.length; i++){
-            		links += '<a href="https://' + aray[i][0] + '">'  + aray[i][1] + '</a> ' + ' | ';
+            		links += '<a href="http://' + aray[i][0] + '">'  + aray[i][1] + '</a> ' + ' | ';
             	}
             	
             	this.post = links;

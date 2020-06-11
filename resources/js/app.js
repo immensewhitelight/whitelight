@@ -14,15 +14,15 @@ Vue.use(IconsPlugin)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+import PostComponent from './components/PostComponent'
+import PortalComponent from './components/PortalComponent'
 import AboutComponent from './components/AboutComponent'
+import VideoComponent from './components/VideoComponent'
+import VPortalComponent from './components/VPortalComponent'
 import SourceComponent from './components/SourceComponent'
 import DonateComponent from './components/DonateComponent'
 
-import PostComponent from './components/PostComponent'
-import PortalComponent from './components/PortalComponent'
-
 import User from './components/User'
-
 import VueChat from './components/VueChat'
 import VueChatChannels from './components/VueChatChannels'
 import VueChatMessages from './components/VueChatMessages'
@@ -30,7 +30,6 @@ import VueChatNewMessage from './components/VueChatNewMessage'
 import VueChatParticipants from './components/VueChatParticipants'
 
 Vue.component('user', require('./components/User.vue').default);
-
 Vue.component('vue-chat', require('./components/VueChat.vue').default);
 Vue.component('vue-chat-channels', require('./components/VueChatChannels.vue').default);
 Vue.component('vue-chat-messages', require('./components/VueChatMessages.vue').default);
@@ -55,6 +54,11 @@ const router = new VueRouter({
            component: AboutComponent
 	    },
 	    {
+            path: '/video',
+            name: 'video',
+            component: VideoComponent
+        },
+	    {
            path: '/source',
 	       name: 'source',
            component: SourceComponent
@@ -67,6 +71,10 @@ const router = new VueRouter({
 		{ 	path: '/portal/:id', 
 			component: PortalComponent 
 		},
+		{ 	path: '/vportal/:id', 
+			component: VPortalComponent 
+		},
+        
         
     ],
 });

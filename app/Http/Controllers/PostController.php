@@ -11,26 +11,22 @@ class PostController extends Controller
 {
     public function index() {
 
-   // $posts = Post::all();
-    
-   // return view('spa', ['posts' => $posts]);
-   
-   return response()->json([
+        return response()->json([
 
             'posts' => \App\Post::latest()->get()
 
         ], Response::HTTP_OK);
     
-}
+	}
 
-	public function getLinks($id) {
+	public function getPost($id) {
 		
-			return response()->json([
+		return response()->json([
 
             'post' => \App\Post::find($id)
 
         ], Response::HTTP_OK);
 		      
-}
+	}
 
 }

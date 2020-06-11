@@ -1,12 +1,11 @@
 <template>
-		<div>
-        <input type="text"
-            class="form-control"
-            placeholder="New message. You must be present on the channel to receive."
-            v-model="$v.message.$model"
-            :class="status($v.message)"
-            @keyup.enter.prevent="sendMessage">
-           <!-- <pre>{{ $v }}</pre> -->
+		<div id="app">
+			<input type="text"
+				class="form-control"
+				placeholder="New message. You must be present on the channel to receive."
+				v-model="$v.message.$model"
+				:class="status($v.message)"
+				@keyup.enter.prevent="sendMessage">
         </div>
 </template>
 

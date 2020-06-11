@@ -1,5 +1,4 @@
 
-
 <p>
 
 Copyright WhiteLight released under the MIT license.
@@ -36,7 +35,8 @@ somedomain.com/dashboard //access Orchid dashboard
 
 troubleshooting:
 make sure redis is installed,
-make sure the ownership of the ssl files are correct
+make sure the ownership of the ssl files are correct,
+make sure to open the right port ie. 3000
 
 </p>
 

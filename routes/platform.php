@@ -11,8 +11,12 @@ use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use Illuminate\Support\Facades\Route;
+use App\Orchid\Screens\EmailSenderScreen;
+use App\Orchid\Screens\Idea;
 use App\Orchid\Screens\PostEditScreen;
 use App\Orchid\Screens\PostListScreen;
+use App\Orchid\Screens\VideoEditScreen;
+use App\Orchid\Screens\VideoListScreen;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +28,12 @@ use App\Orchid\Screens\PostListScreen;
 | contains the need "dashboard" middleware group. Now create something great!
 |
 */
+
+
+//$this->router->screen('email', EmailSenderScreen::class)->name('platform.email');
+
+Route::screen('email', EmailSenderScreen::class)->name('platform.email');
+
 
 // Main
 Route::screen('/main', PlatformScreen::class)->name('platform.main');
@@ -43,8 +53,18 @@ Route::screen('example-fields', ExampleFieldsScreen::class)->name('platform.exam
 Route::screen('example-layouts', ExampleLayoutsScreen::class)->name('platform.example.layouts');
 //Route::screen('/dashboard/screen/idea', 'Idea::class','platform.screens.idea');
 
+
 $this->router->screen('post/{post?}', PostEditScreen::class)
     ->name('platform.post.edit');
 
 $this->router->screen('posts', PostListScreen::class)
     ->name('platform.post.list');
+
+
+$this->router->screen('video/{video?}', VideoEditScreen::class)
+    ->name('platform.video.edit');
+
+$this->router->screen('videos', VideoListScreen::class)
+    ->name('platform.video.list');
+
+

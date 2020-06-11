@@ -1,5 +1,5 @@
 <template>
-    <div class="col" ref="channels-window">
+    <div id="app" class="col" ref="channels-window">
         <p v-for="channel in channels"
 		:key="channel.id"
 		v-text="channel.name"
@@ -18,7 +18,7 @@ export default {
 },
 
 watch: {
-    messages() {
+    channels() {
         this.scrollToBottom();
     }
 },
@@ -42,11 +42,10 @@ scrollToBottom() {
 
 <style scoped>
 
-
 .col {
     overflow-y: auto;
-    max-height: 200px;
 	word-wrap: break-word;
+	max-height: 277px;
 }
 
 .channel {

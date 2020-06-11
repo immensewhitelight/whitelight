@@ -46,6 +46,25 @@ class MainMenuComposer
             ->route('platform.post.list')
     );
 		
+		$this->dashboard->menu
+    ->add(Menu::MAIN,
+        ItemMenu::label('Video poster')
+            ->icon('icon-star')
+            ->route('platform.video.edit')
+            
+    );
+		
+		$this->dashboard->menu
+    ->add(Menu::MAIN,
+        ItemMenu::label('Video lister')
+            ->icon('icon-star')
+            ->route('platform.video.list')
+    );
+		
+		
+		
+		
+		
 		/*
 		$this->dashboard->menu
     ->add(Menu::MAIN,
@@ -108,4 +127,3 @@ class MainMenuComposer
             */
     }
 }
-

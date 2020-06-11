@@ -15,10 +15,9 @@ class ChannelsSeeder extends Seeder
         Channel::truncate();
 
         $channels = [
-            'Web Development',
-            'Android Development',
-            'iOS Development',
-            'AI',
+	    '1',
+            '2',
+            '3',
         ];
 
         foreach ($channels as $name) {

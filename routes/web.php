@@ -21,11 +21,21 @@ Route::get('/', function () {
 
 */
 
+//send messages to the chat
+Route::post('/channels/{channel}/messages','ChatController@postMessage')->name('postMessage')->middleware('whitelist');
+
 //get the posts with axios
 Route::get('/postlist','PostController@index')->name('postlist');
 
+//get the videos with axios
+Route::get('/videolist','VideoController@index')->name('videolist');
+
 //get the links with axios
-Route::get('/links/{id}','PostController@getLinks')->name('links');
+Route::get('/links/{id}','PostController@getPost')->name('links');
+
+//get the vlinks with axios
+Route::get('/vlinks/{id}','VideoController@getVideo')->name('vlinks');
+
 
 //get the channels for the chat
 Route::get('/', function () {
@@ -34,36 +44,37 @@ Route::get('/', function () {
     return view('welcome', compact('channels'));
 });
 
-//redirect to home to solve reload of /portal/{id} error
+//redirect to home to solve reload error
 Route::get('/portal/{any}', function () {
     
     return redirect('/');
     
 })->where('any', '.*');
 
-
-//redirect to home to solve reload of /portal/{id} error
+//redirect to home to solve reload error
 Route::get('/about', function () {
     
     return redirect('/');
     
 })->where('any', '.*');
 
-//redirect to home to solve reload of /portal/{id} error
+//redirect to home to solve reload error
+Route::get('/vportal/{any}', function () {
+    
+    return redirect('/');
+    
+})->where('any', '.*');
+
+//redirect to home to solve reload error
 Route::get('/source', function () {
     
     return redirect('/');
     
 })->where('any', '.*');
 
-//redirect to home to solve reload of /portal/{id} error
+//redirect to home to solve reload error
 Route::get('/donate', function () {
     
     return redirect('/');
     
 })->where('any', '.*');
-
-//send messages to the chat
-Route::post('/channels/{channel}/messages','ChatController@postMessage')->name('postMessage');
-
-

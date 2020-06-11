@@ -1,14 +1,14 @@
 <template>
-    <div class="col" ref="participants-window">
-    <div>
-		<user 
-		v-for="(username, index) in participants"
-		v-bind:username="username"
-        v-bind:index="index"
-        v-bind:key="`user-${index}`"
-        v-bind:checkbox="checkbox"
-        > </user>
-	</div>     
+    <div id="app" class="col" ref="participants-window">
+		<div>
+			<user 
+			v-for="(username, index) in participants"
+			v-bind:username="username"
+			v-bind:index="index"
+			v-bind:key="`user-${index}`"
+			v-bind:checkbox="checkbox"
+			> </user>
+		</div>     
     </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
 },
 
 watch: {
-    messages() {
+    participants() {
         this.scrollToBottom();
     }
 },
@@ -47,8 +47,8 @@ methods: {
 
 .col {
     overflow-y: auto;
-    max-height: 200px;
 	word-wrap: break-word;
+	max-height: 111px;
 }
 </style>
 
