@@ -15,7 +15,7 @@ cp .env.example .env   //edit .env with correct database and domain information
 
 BROADCAST_DRIVER=redis //edit .env to use redis
 
-socket.js //edit to correct username and domain 
+socket.js //edit to correct username, domain, mysql username and password 
 
 resources/js/components/VueChat.vue //edit to correct somedomain.com, around line 188
 
