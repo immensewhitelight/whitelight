@@ -1,7 +1,9 @@
 
 <p>
 
-Copyright WhiteLight released under the MIT license.
+Copyright WhiteLight released under the MIT license. 
+
+Donate bitcoin: 1GvmgxMdpQSX8d3Y2eypgSDXzuwX7aqxXx
 
 This app uses Laravel, Orchid platform, Redis, Vue.js, Node.js, Socket.io, Bootstrap 4. 
 
