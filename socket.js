@@ -124,7 +124,7 @@ io.on('connect', function (socket) {
 		// user must reload browser.
 		// remove ipAddress from whitelist
 		// thus messages cant be sent.
-		// here their username is not removed
+		// here the client ip address is not removed
 		// from the ipAddresses array in case 
 		// client tries to reconnect to socket
 		// without browser reload.
