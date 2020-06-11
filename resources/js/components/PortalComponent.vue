@@ -57,7 +57,7 @@
             	//convert the array of arrays into a string of url links
             	var links = '| ';
             	for (i = 0; i < aray.length; i++){
-            		links += '<a href="http://' + aray[i][0] + '">'  + aray[i][1] + '</a> ' + ' | ';
+            		links += '<a href="https://' + aray[i][0] + '">'  + aray[i][1] + '</a> ' + ' | ';
             	}
             	
             	this.post = links;
