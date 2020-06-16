@@ -27,14 +27,23 @@ Route::post('/channels/{channel}/messages','ChatController@postMessage')->name('
 //get the posts with axios
 Route::get('/postlist','PostController@index')->name('postlist');
 
-//get the videos with axios
-Route::get('/videolist','VideoController@index')->name('videolist');
-
 //get the links with axios
 Route::get('/links/{id}','PostController@getPost')->name('links');
 
+//get the videos with axios
+Route::get('/videolist','VideoController@index')->name('videolist');
+
 //get the vlinks with axios
 Route::get('/vlinks/{id}','VideoController@getVideo')->name('vlinks');
+
+//get the vids with axios
+Route::get('/vidlist','VidController@index')->name('vidlist');
+
+//get the assorteds with axios
+Route::get('/assortedlist','AssortedController@index')->name('assortedlist');
+
+//get the vlinks with axios
+Route::get('/alinks/{id}','AssortedController@getAssorted')->name('alinks');
 
 
 //get the channels for the chat
@@ -66,6 +75,13 @@ Route::get('/vportal/{any}', function () {
 })->where('any', '.*');
 
 //redirect to home to solve reload error
+Route::get('/aportal/{any}', function () {
+    
+    return redirect('/');
+    
+})->where('any', '.*');
+
+//redirect to home to solve reload error
 Route::get('/source', function () {
     
     return redirect('/');
@@ -78,3 +94,4 @@ Route::get('/donate', function () {
     return redirect('/');
     
 })->where('any', '.*');
+

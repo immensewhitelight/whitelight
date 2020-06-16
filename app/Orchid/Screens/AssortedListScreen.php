@@ -2,27 +2,29 @@
 
 namespace App\Orchid\Screens;
 
-use App\Orchid\Layouts\VideoListLayout;
-use App\Video;
+use App\Orchid\Layouts\AssortedListLayout;
+use App\Assorted;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
+use Illuminate\Support\Facades\Log;
 
-class VideoListScreen extends Screen
+
+class AssortedListScreen extends Screen
 {
     /**
      * Display header name.
      *
      * @var string
      */
-    public $name = 'Video';
+    public $name = 'Assorted';
 
     /**
      * Display header description.
      *
      * @var string
      */
-    public $description = 'All video';
+    public $description = 'All assorted';
 
     /**
      * Query data.
@@ -32,7 +34,7 @@ class VideoListScreen extends Screen
     public function query(): array
     {
         return [
-            'videos' => Video::paginate()
+            'assorteds' => Assorted::paginate()
         ];
     }
 
@@ -46,11 +48,11 @@ class VideoListScreen extends Screen
         return [
             Link::make('Create new')
                 ->icon('icon-pencil')
-                ->route('platform.video.edit'),
+                ->route('platform.assorted.edit'),
                 
-            Button::make('Retrieve video urls ')
+            Button::make('Retrieve assorted urls ')
                 ->icon('icon-star')
-                ->method('retrieveVideoUrls'),
+                ->method('retrieveAssortedUrls'),
                      
         ];
     }
@@ -63,63 +65,70 @@ class VideoListScreen extends Screen
     public function layout(): array
     {
         return [
-            VideoListLayout::class
+            AssortedListLayout::class
         ];
     }
     
     /**
-    * using a bitchute channel page, extract each video title and video page url
-	* using the video page url, extract the name of the seed of the mp4
+    * using a bitchute channel page, extract each assorted title and assorted page url
+	* using the assorted page url, extract the name of the seed of the mp4
     * using the name of the seed, build the url to the mp4
     * store each url in array and save to urls field in db.
     */
-    public function retrieveVideoUrls()
+    public function retrieveAssortedUrls()
     {
-		$videos =  \App\Video::latest()->get();
+		$assorteds =  \App\Assorted::latest()->get();
 				
-		foreach($videos as $video) {
 				
-			$channelPage = file_get_contents($video['bitchute_channel']);
+				
+		foreach($assorteds as $assorted) {
+				
+			$channelPage = file_get_contents($assorted['bitchute_channel']);
 			
 			$doc = new \DOMDocument;
 			$doc->preserveWhiteSpace = false;
 			@$doc->loadHTML($channelPage);
 			$xpath = new \DOMXpath($doc);
-			$videoPages = $xpath->query("//div[@class='channel-videos-title']");
+			$assortedPages = $xpath->query("//p[@class='video-card-title']");
 			
 			$links = array();
-				
+			
+			$limit = 0;
 			// add each url to the array
-			foreach($videoPages as $contextNode) {
+			foreach($assortedPages as $contextNode) {
 				
+				if (++$limit > 40) break;
+
 				// title
 				$text = $xpath->evaluate("string(./a[1])",$contextNode);
 				
-				// video page 
+				// assorted page 
 				$href = $xpath->evaluate("string(./a[1]/@href)",$contextNode);
 				
-				// video page as string
-				$videoPageUrl = "https://www.bitchute.com" . $href;
-				$videoPage = file_get_contents($videoPageUrl);
+				// assorted page as string
+				$assortedPageUrl = "https://www.bitchute.com" . $href;
+				$assortedPage = file_get_contents($assortedPageUrl);
 				
 				// find the mp4 link in the string
 				// push to array
 				$out = array();
-				preg_match('/https:\/\/seed.*?mp4/', $videoPage, $out);
+				preg_match('/https:\/\/seed.*?mp4/', $assortedPage, $out);
 				
 				$mp4 = $out[0];
 				
+				Log::info($mp4);
+				
 				$array = array();
 						
-				$link = "<a href=$mp4 target=popup onclick=window.open('$mp4','popup','width=211,height=211'); return false; >$text</a>"; 
+				$link = "<a href=$mp4 target=popup onclick=window.open('$mp4','popup','width=222,height=222'); return false; >$text</a>"; 
 
 				$links[] = $link;
 			
 			}
 			// save to db
-			$video->urls = $links;
+			$assorted->urls = $links;
 			
-			$video->save();  
+			$assorted->save();  
 			
      }
    } 

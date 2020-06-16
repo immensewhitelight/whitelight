@@ -17,6 +17,11 @@ use App\Orchid\Screens\PostEditScreen;
 use App\Orchid\Screens\PostListScreen;
 use App\Orchid\Screens\VideoEditScreen;
 use App\Orchid\Screens\VideoListScreen;
+use App\Orchid\Screens\VidEditScreen;
+use App\Orchid\Screens\VidListScreen;
+use App\Orchid\Screens\AssortedEditScreen;
+use App\Orchid\Screens\AssortedListScreen;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +38,6 @@ use App\Orchid\Screens\VideoListScreen;
 //$this->router->screen('email', EmailSenderScreen::class)->name('platform.email');
 
 Route::screen('email', EmailSenderScreen::class)->name('platform.email');
-
 
 // Main
 Route::screen('/main', PlatformScreen::class)->name('platform.main');
@@ -53,18 +57,30 @@ Route::screen('example-fields', ExampleFieldsScreen::class)->name('platform.exam
 Route::screen('example-layouts', ExampleLayoutsScreen::class)->name('platform.example.layouts');
 //Route::screen('/dashboard/screen/idea', 'Idea::class','platform.screens.idea');
 
-
 $this->router->screen('post/{post?}', PostEditScreen::class)
     ->name('platform.post.edit');
 
 $this->router->screen('posts', PostListScreen::class)
     ->name('platform.post.list');
 
-
 $this->router->screen('video/{video?}', VideoEditScreen::class)
     ->name('platform.video.edit');
 
 $this->router->screen('videos', VideoListScreen::class)
     ->name('platform.video.list');
+
+$this->router->screen('vid/{vid?}', VidEditScreen::class)
+    ->name('platform.vid.edit');
+
+$this->router->screen('vids', VidListScreen::class)
+    ->name('platform.vid.list');
+    
+$this->router->screen('assorted/{assorted?}', AssortedEditScreen::class)
+    ->name('platform.assorted.edit');
+
+$this->router->screen('assorteds', AssortedListScreen::class)
+    ->name('platform.assorted.list');    
+
+
 
 

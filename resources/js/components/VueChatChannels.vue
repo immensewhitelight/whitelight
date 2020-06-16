@@ -45,7 +45,7 @@ scrollToBottom() {
 .col {
     overflow-y: auto;
 	word-wrap: break-word;
-	max-height: 277px;
+	max-height: 77px;
 }
 
 .channel {

@@ -16,6 +16,8 @@
 				<router-link :to="{ name: 'home' }">Home</router-link>
 				<router-link :to="{ name: 'about' }">About</router-link>
 				<router-link :to="{ name: 'video' }">Video</router-link>
+				<router-link :to="{ name: 'vid' }">Vid</router-link>
+				<router-link :to="{ name: 'assorted' }">Assorted</router-link>
 				<router-link :to="{ name: 'source' }">Source code</router-link>
 				<router-link :to="{ name: 'donate' }">Donate</router-link>
 				<hr>		

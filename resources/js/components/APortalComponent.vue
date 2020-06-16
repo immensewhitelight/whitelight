@@ -23,6 +23,7 @@ var loading
     	data () {
             return {
               links: [],
+              polling: null,
             }
         },
 
@@ -33,11 +34,11 @@ var loading
         	
         		this.loading = true
         		
-        		var url = "/vlinks/" + this.$route.params.id
+        		var url = "/alinks/" + this.$route.params.id
 	
   				axios.get(url).then(resp => {
 
-  				    this.links = resp.data.video.urls;
+  				    this.links = resp.data.assorted.urls;
   		
   				});
             },
@@ -46,13 +47,35 @@ var loading
 			this.$nextTick(() => {
 				this.$refs['links-window'].scrollTop = this.$refs['links-window'].scrollHeight;
 			});
-		}
-            
-                      
+		},
+		
+			pollData () {
+					this.polling = setInterval(() => {
+							
+							
+							var url = "/alinks/" + this.$route.params.id
+	
+							axios.get(url).then(resp => {
+
+								this.links = resp.data.assorted.urls;
+					
+							});
+							
+					}, 300000)
+					
+					this.loading = false;
+        }
+              
         },
         
+        beforeDestroy () {
+            clearInterval(this.polling)
+		},
+        
         created() {	
-            this.getLinks()
+            this.getLinks();
+            this.pollData();
+
         },
         
         mounted() {

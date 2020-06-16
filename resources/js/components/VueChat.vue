@@ -18,7 +18,8 @@
 							<div class="col">
 							<vue-chat-participants :participants="participants" :checkbox="checkbox"></vue-chat-participants>
 							</div>
-					</div>
+					</div>		
+							
 					<div class="row">		
 							<div class="col">
 							  <br>	
@@ -26,8 +27,6 @@
 							</div>
 							
 				    </div>
-
-							
 				   <br>
 				   <br>
 					<div class="row">
@@ -176,8 +175,7 @@ export default {
    
  created() {
 	
-    this.socket = io.connect(`https://somedomain.com:3000?username=${this.username}`, {secure: true});
-    
+    this.socket = io.connect(`https://somedomain.com:3000?username=${this.username}`, {secure: true});    
     this.block();
  
  },

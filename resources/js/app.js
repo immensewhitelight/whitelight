@@ -19,6 +19,11 @@ import PortalComponent from './components/PortalComponent'
 import AboutComponent from './components/AboutComponent'
 import VideoComponent from './components/VideoComponent'
 import VPortalComponent from './components/VPortalComponent'
+import VidComponent from './components/VidComponent'
+
+import AssortedComponent from './components/AssortedComponent'
+import APortalComponent from './components/APortalComponent'
+
 import SourceComponent from './components/SourceComponent'
 import DonateComponent from './components/DonateComponent'
 
@@ -58,6 +63,16 @@ const router = new VueRouter({
             name: 'video',
             component: VideoComponent
         },
+        {
+            path: '/vid',
+            name: 'vid',
+            component: VidComponent
+        },
+        {
+            path: '/assorted',
+            name: 'assorted',
+            component: AssortedComponent
+        },
 	    {
            path: '/source',
 	       name: 'source',
@@ -74,7 +89,9 @@ const router = new VueRouter({
 		{ 	path: '/vportal/:id', 
 			component: VPortalComponent 
 		},
-        
+        { 	path: '/aportal/:id', 
+			component: APortalComponent 
+		},
         
     ],
 });

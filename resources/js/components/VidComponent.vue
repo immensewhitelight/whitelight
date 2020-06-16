@@ -2,16 +2,16 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
 		<div class="col">
-				<div id="app" class="col" ref="posts-window">
+				<div id="app" class="col" ref="vids-window">
 				  <div v-if="loading" class="loading">
 						  Loading...
 				  </div>
                   
-                  <div v-for="post in posts" :key="post.id">
-                      <p>{{ post.title }}</p>
-                      <p>{{ post.description }}</p>   
-                      <div v-html="post.body"></div>    
-                      <p> <button class="btn btn-primary" v-on:click="handleClick(post)">Links</button> </p>
+                  <div v-for="vid in vids" :key="vid.id">
+                      <p>{{ vid.title }}</p>
+                      <p>{{ vid.description }}</p>   
+                      <div v-html="vid.body"></div>    
+                      <p> <button class="btn btn-primary" v-on:click="handleClick(vid)">Links</button> </p>
 			      </div>
 			   </div>
         </div>
@@ -26,7 +26,7 @@ var loading
     	data () {
             return {
             
-              posts: {},
+              vids: {},
             }   
         },
         
@@ -37,32 +37,33 @@ var loading
 
         methods: {
             
-        	getPosts(){
+        	getVids(){
         		this.loading = true
-        		var url = "/postlist"
+        		var url = "/vidlist"
         		
                  axios
                  .get(url)
-                 .then(response => (this.posts = response.data.posts))
+                 .then(response => (this.vids = response.data.vids))
  
             },
             
-            handleClick(post) {
-            	
-            	var url = "/portal/" + post.id
+            handleClick(vid) {
+            	  	
+            	var url = "/vportal/" + vid.id
             	
             	this.$router.push(url)
+            		
             },
             
             scrollToBottom() {
 			this.$nextTick(() => {
-				this.$refs['posts-window'].scrollTop = this.$refs['posts-window'].scrollHeight;
+				this.$refs['vids-window'].scrollTop = this.$refs['vids-window'].scrollHeight;
 			});
 		}
             
         },
         created() {
-            this.getPosts()
+            this.getVids()
         },
         
         

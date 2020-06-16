@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\UpdateVideos::class,
+        Commands\UpdateAssorteds::class,
     ];
 
     /**
@@ -24,7 +25,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('update:videos')
+            ->everyFiveMinutes();
+            
+        $schedule->command('update:assorteds')
+            ->everyFiveMinutes();
     }
 
     /**

@@ -60,6 +60,36 @@ class MainMenuComposer
             ->icon('icon-star')
             ->route('platform.video.list')
     );
+    
+		$this->dashboard->menu
+    ->add(Menu::MAIN,
+        ItemMenu::label('Vid poster')
+            ->icon('icon-star')
+            ->route('platform.vid.edit')
+            
+    );
+		
+		$this->dashboard->menu
+    ->add(Menu::MAIN,
+        ItemMenu::label('Vid lister')
+            ->icon('icon-star')
+            ->route('platform.vid.list')
+    );
+    
+        $this->dashboard->menu
+    ->add(Menu::MAIN,
+        ItemMenu::label('Assorted poster')
+            ->icon('icon-star')
+            ->route('platform.assorted.edit')
+            
+    );
+		
+		$this->dashboard->menu
+    ->add(Menu::MAIN,
+        ItemMenu::label('Assorted lister')
+            ->icon('icon-star')
+            ->route('platform.assorted.list')
+    );
 		
 		
 		

@@ -78,7 +78,7 @@ var loading
 <style scoped>
 .col {
     overflow-y: auto;
-    max-height: 188px;
+    max-height: 250px;
 	word-wrap: break-word;
 }
 </style>

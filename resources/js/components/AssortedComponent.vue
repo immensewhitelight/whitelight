@@ -2,16 +2,16 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
 		<div class="col">
-				<div id="app" class="col" ref="posts-window">
+				<div id="app" class="col" ref="assorteds-window">
 				  <div v-if="loading" class="loading">
 						  Loading...
 				  </div>
                   
-                  <div v-for="post in posts" :key="post.id">
-                      <p>{{ post.title }}</p>
-                      <p>{{ post.description }}</p>   
-                      <div v-html="post.body"></div>    
-                      <p> <button class="btn btn-primary" v-on:click="handleClick(post)">Links</button> </p>
+                  <div v-for="assorted in assorteds" :key="assorted.id">
+                      <p>{{ assorted.title }}</p>
+                      <p>{{ assorted.description }}</p>   
+                      <div v-html="assorted.body"></div>    
+                      <p> <button class="btn btn-primary" v-on:click="handleClick(assorted)">Links</button> </p>
 			      </div>
 			   </div>
         </div>
@@ -26,7 +26,7 @@ var loading
     	data () {
             return {
             
-              posts: {},
+              assorteds: {},
             }   
         },
         
@@ -37,32 +37,33 @@ var loading
 
         methods: {
             
-        	getPosts(){
+        	getAssorteds(){
         		this.loading = true
-        		var url = "/postlist"
+        		var url = "/assortedlist"
         		
                  axios
                  .get(url)
-                 .then(response => (this.posts = response.data.posts))
+                 .then(response => (this.assorteds = response.data.assorteds))
  
             },
             
-            handleClick(post) {
-            	
-            	var url = "/portal/" + post.id
+            handleClick(assorted) {
+            	  	
+            	var url = "/aportal/" + assorted.id
             	
             	this.$router.push(url)
+            		
             },
             
             scrollToBottom() {
 			this.$nextTick(() => {
-				this.$refs['posts-window'].scrollTop = this.$refs['posts-window'].scrollHeight;
+				this.$refs['assorteds-window'].scrollTop = this.$refs['assorteds-window'].scrollHeight;
 			});
 		}
             
         },
         created() {
-            this.getPosts()
+            this.getAssorteds()
         },
         
         
